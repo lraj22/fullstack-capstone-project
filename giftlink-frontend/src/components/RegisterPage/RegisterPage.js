@@ -24,14 +24,44 @@ function RegisterPage() {
                     {/* insert code here to create input elements for all the variables - firstName, lastName, email, password */}
                     <div className="mb-4">
 
-                        <label htmlFor="firstName" className="form label"> FirstName</label><br/>
+                        <label htmlFor="firstName" className="form label"> First name</label><br/>
                         <input
                         id="firstName"
                         type="text"
                         className="form-control"
-                        placeholder="Enter your firstName"
+                        placeholder="Enter your first name"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
+                        />
+
+                        <label htmlFor="lastName" className="form label"> Last name</label><br/>
+                        <input
+                        id="lastName"
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter your last name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        />
+
+                        <label htmlFor="firstName" className="form label"> Email</label><br/>
+                        <input
+                        id="email"
+                        type="email"
+                        className="form-control"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+
+                        <label htmlFor="password" className="form label"> Password</label><br/>
+                        <input
+                        id="password"
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     {/* insert code here to create a button that performs the `handleRegister` function on click */}

@@ -22,11 +22,21 @@ function LoginPage() {
                     <label htmlFor="email" className="form-label">Email</label>
                     <input
                         id="email"
-                        type="text"
+                        type="email"
                         className="form-control"
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                    />
+
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
           {/* insert code here to create a button that performs the `handleLogin` function on click */}
