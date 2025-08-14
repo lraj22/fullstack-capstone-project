@@ -1,5 +1,5 @@
 const config = {
-  backendUrl: "https://lakshyarajrk-3060.theiaopenshiftnext-1-labs-prod-theiaopenshift-4-tor01.proxy.cognitiveclass.ai/",
+  backendUrl: process.env.REACT_APP_BACKEND_URL,
 };
 
 console.log(`backendUrl in config.js: ${config.backendUrl}`)
