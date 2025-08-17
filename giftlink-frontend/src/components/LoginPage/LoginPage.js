@@ -1,7 +1,7 @@
+/*jshint esversion: 8 */
 import React, { useState, useEffect } from 'react';
 import './LoginPage.css';
 
-import {urlConfig} from '../../config';
 import { useAppContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 const bearerToken = sessionStorage.getItem('bearer-token');
