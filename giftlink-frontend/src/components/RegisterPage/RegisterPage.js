@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
 import './RegisterPage.css';
+import {urlConfig} from '../../config';
+import { useAppContext } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+const [showerr, setShowerr] = useState('');
+const navigate = useNavigate();
+const { setIsLoggedIn } = useAppContext();
 
 function RegisterPage() {
 
@@ -11,10 +17,41 @@ function RegisterPage() {
     const [password, setPassword] = useState('');
 
     // insert code here to create handleRegister function and include console.log
-    const handleRegister = async () => {
-        console.log("Register invoked")
-    }
-         return (
+        const handleRegister = async () => {
+            try{
+                const response = await fetch(`${urlConfig.backendUrl}/api/auth/register`, {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        password: password
+                    })
+                })
+
+                const json = await response.json();
+                if (json.authtoken) {
+                    sessionStorage.setItem('auth-token', json.authtoken);
+                    sessionStorage.setItem('name', firstName);
+                    sessionStorage.setItem('email', json.email);
+                    setIsLoggedIn(true);
+                    navigate("/app");
+                }
+                if (json.error) {
+                    setShowerr(json.error);
+                }
+                return (
+                    <div className="text-danger">{showerr}</div>
+                );
+            }catch (e) {
+                console.log("Error fetching details: " + e.message);
+            }
+        }
+
+        return (
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-6 col-lg-4">
