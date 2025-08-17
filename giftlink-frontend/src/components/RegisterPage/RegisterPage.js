@@ -4,11 +4,11 @@ import './RegisterPage.css';
 import {urlConfig} from '../../config';
 import { useAppContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-const [showerr, setShowerr] = useState('');
-const navigate = useNavigate();
-const { setIsLoggedIn } = useAppContext();
 
 function RegisterPage() {
+    const [showerr, setShowerr] = useState('');
+    const navigate = useNavigate();
+    const { setIsLoggedIn } = useAppContext();
 
     //insert code here to create useState hook variables for firstName, lastName, email, password
     const [firstName, setFirstName] = useState('');

@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './LoginPage.css';
 
 import {urlConfig} from '../../config';
 import { useAppContext } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-const [incorrect, setIncorrect] = useState('');
-const navigate = useNavigate();
 const bearerToken = sessionStorage.getItem('bearer-token');
-const { setIsLoggedIn } = useAppContext();
-useEffect(() => {
-  if (sessionStorage.getItem('auth-token')) {
-    navigate('/app')
-  }
-}, [navigate])
 
 function LoginPage() {
+    const [incorrect, setIncorrect] = useState('');
+    const navigate = useNavigate();
+    const { setIsLoggedIn } = useAppContext();
+    
+    useEffect(() => {
+        if (sessionStorage.getItem('auth-token')) {
+          navigate('/app')
+        }
+    }, [navigate])
 
     //insert code here to create useState hook variables for email, password
     const [email, setEmail] = useState('');
@@ -35,7 +36,7 @@ function LoginPage() {
                 })
             })
 
-            const json = await res.json();
+            const json = await response.json();
             if (json.authtoken) {
                 sessionStorage.setItem('auth-token', json.authtoken);
                 sessionStorage.setItem('name', json.userName);
