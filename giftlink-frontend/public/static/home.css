@@ -18,7 +18,7 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('./background-stars.jpg');
+    background: url('./static/background-stars.jpg');
     filter: blur(8px);
 }
 
@@ -28,8 +28,9 @@ body::before {
     z-index: 10;
     text-align: center;
     color: #222222;
-    padding: 1em;
-    background-color: #dddddd;
+    padding: 4em;
+    background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
 }
 
 /* Task 4: Add styles for headings, paragraphs, and buttons */
